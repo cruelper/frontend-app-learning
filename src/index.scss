@@ -5,6 +5,11 @@
 
 @import "~@edx/frontend-component-footer/dist/footer";
 
+$primary-1: #2780e3;
+$primary-2: #ddeeff;
+$secondary-1: #fff;
+$secondary-2: #000;
+
 #root {
   display: flex;
   flex-direction: column;

@@ -47,13 +47,13 @@ $secondary-2: #000;
   .nav a,
   .nav button {
     &:hover {
-      background-color: $light-400;
+      background-color: $secondary-1;
     }
   }
 
   .nav a {
     &:not(.active):hover {
-      background-color: $light-400;
+      background-color: $secondary-1;
       border-bottom: none;
     }
   }
@@ -65,7 +65,7 @@ $secondary-2: #000;
   .nav-link {
     border-bottom: 4px solid transparent;
     border-top: 4px solid transparent;
-    color: $gray-700;
+    color: $secondary-2;
 
     // temporary until we can remove .btn class from dropdowns
     border-left: 0;
@@ -76,8 +76,8 @@ $secondary-2: #000;
     &:focus,
     &.active {
       font-weight: $font-weight-normal;
-      color: $primary-500;
-      border-bottom-color: $primary-500;
+      color: $primary-2;
+      border-bottom-color: $primary-2;
     }
   }
 }
@@ -123,13 +123,13 @@ $secondary-2: #000;
     height: 3rem;
     justify-content: center;
     align-items: center;
-    color: $gray-500;
+    color: $secondary-2;
     white-space: nowrap;
 
     &:hover,
     &:focus,
     &.active {
-      color: $gray-700;
+      color: $secondary-2;
     }
 
     &:focus {
@@ -144,7 +144,7 @@ $secondary-2: #000;
         left: 0;
         right: 0;
         height: 2px;
-        background: $primary;
+        background: $primary-1;
       }
     }
 
@@ -201,12 +201,12 @@ $secondary-2: #000;
         min-width: 0;
         margin: 0 1rem;
         text-overflow: ellipsis;
-        color: $gray-700;
+        color: $secondary-2;
       }
 
       &.active {
         .unit-icon {
-          color: $primary-500;
+          color: $primary-2;
         }
 
         &:after {
@@ -218,7 +218,7 @@ $secondary-2: #000;
           right: auto;
           width: 2px;
           height: auto;
-          background: $primary;
+          background: $primary-1;
         }
       }
     }
@@ -233,8 +233,8 @@ $secondary-2: #000;
 
   .previous-btn,
   .next-btn {
-    border: 1px solid $light-400 !important;
-    color: $gray-700;
+    border: 1px solid $secondary-1 !important;
+    color: $secondary-2;
     display: inline-flex;
     justify-content: center;
     align-items: center;

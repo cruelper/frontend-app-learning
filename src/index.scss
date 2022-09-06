@@ -108,7 +108,7 @@ $secondary-2: #000;
   display: flex;
 
   @media (min-width: map-get($grid-breakpoints, "sm")) {
-    margin: -1px -1px 0;
+    margin: 100px -1px 0;
   }
 
   .btn {

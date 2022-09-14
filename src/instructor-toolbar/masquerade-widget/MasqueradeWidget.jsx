@@ -21,7 +21,7 @@ class MasqueradeWidget extends Component {
     this.courseId = props.courseId;
     this.state = {
       autoFocus: false,
-      masquerade: 'Staff',
+      masquerade: 'Администратор',
       options: [],
       shouldShowUserNameInput: false,
       masqueradeUsername: null,
@@ -71,7 +71,7 @@ class MasqueradeWidget extends Component {
   toggle(show) {
     this.setState(prevState => ({
       autoFocus: true,
-      masquerade: 'Specific Student...',
+      masquerade: 'Выбранный пользователь...',
       shouldShowUserNameInput: show === undefined ? !prevState.shouldShowUserNameInput : show,
     }));
   }
@@ -96,7 +96,7 @@ class MasqueradeWidget extends Component {
     if (active.userName) {
       this.setState({
         autoFocus: false,
-        masquerade: 'Specific Student...',
+        masquerade: 'Выбранный пользователь...',
         masqueradeUsername: active.userName,
         shouldShowUserNameInput: true,
       });

@@ -75,7 +75,6 @@ $secondary-2: #000;
     &:hover,
     &:focus,
     &.active {
-      font-weight: $font-weight-normal;
       color: $primary-1;
       border-bottom-color: $primary-1;
     }
@@ -118,7 +117,6 @@ $secondary-2: #000;
     border: solid 1px #eaeaea;
     border-left-width: 0;
     position: relative;
-    font-weight: 400;
     padding: 0 0.375rem;
     height: 3rem;
     justify-content: center;

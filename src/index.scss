@@ -9,6 +9,8 @@ $primary-1: #2780e3;
 $primary-2: #ddeeff;
 $secondary-1: #fff;
 $secondary-2: #000;
+$secondary-3: #e7e7e7;
+$secondary-4: #767676;
 
 #root {
   display: flex;
@@ -17,6 +19,26 @@ $secondary-2: #000;
   
   .btn {
     border-radius: 0 !important;
+  }
+  
+  .bg-primary {
+    background-color: $primary-1!important;
+  }
+  
+  .raised-card {
+    border: 1px solid $secondary-3 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+  
+  .btn-icon.btn-icon-primary {
+    background-color: transparent !important;
+    color: $secondary-4 !important;
+  }
+  
+  .btn-icon.btn-icon-primary.active, .btn-icon.btn-icon-primary.hover, .btn-icon.btn-icon-primary:active, .btn-icon.btn-icon-primary:hover {
+    background-color: transparent !important;
+    color: $primary-1 !important;
   }
 
   main {

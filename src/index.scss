@@ -20,14 +20,6 @@ $max-width: 1600px;
   max-width: $max-width;
   margin: 0 auto;
   
-  #root > * {
-    border-radius: 0 !important;
-  }
-  
-  * {
-    border-radius: 0 !important;
-  }
-  
   .btn {
     border-radius: 0 !important;
   }

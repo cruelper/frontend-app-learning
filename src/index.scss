@@ -25,7 +25,7 @@ $max-width: 1600px;
   }
   
   .bg-primary {
-    background-color: $primary-1!important;
+    background-color: $primary-1 !important;
   }
   
   .raised-card {
@@ -46,6 +46,40 @@ $max-width: 1600px;
   
   .dropdown-menu {
     border-radius: 0 !important;
+  }
+  
+  .next-button, .previous-button {
+    background-color: transparent !important;
+    color: $primary-1 !important;
+    border: 1px solid $primary-1 !important;
+  }
+  
+  .next-button:hover, .previous-button:hover {
+    background-color: $primary-1 !important;
+    color: $secondary-1 !important;
+    border: 1px solid $primary-1 !important;
+  }
+  
+  .pgn__menu-select-trigger-btn {
+    color: $secondary-4 !important;
+  }
+  
+  .pgn__menu-select-trigger-btn:hover {
+    background: transparent !important;
+    border: 0 !important;
+    color: $primary-1 !important;
+  }
+  
+  a.text-primary:focus, a.text-primary:hover {
+    color: $primary-1 !important;
+  }
+  
+  a.text-primary {
+    color: $secondary-4 !important;
+  }
+  
+  .wrap-instructor-info .instructor-info-action {
+    border-radius: 0;
   }
 
   main {
@@ -264,7 +298,7 @@ $max-width: 1600px;
 
   .previous-btn,
   .next-btn {
-    border: 1px solid $secondary-1 !important;
+    border: 1px solid $secondary-3 !important;
     color: $secondary-2;
     display: inline-flex;
     justify-content: center;

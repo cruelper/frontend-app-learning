@@ -82,15 +82,17 @@ $max-width: 1600px;
   }
   
   .wrap-instructor-info .instructor-info-action {
+    border: 1px solid $primary-1 !important;
     border-radius: 0 !important;
     background-color: transparent !important;
     color: $primary-1 !important;
   }
   
   .wrap-instructor-info .instructor-info-action {
+    border: 1px solid $primary-1 !important;
     border-radius: 0 !important;
     background-color: $primary-1 !important;
-    color: transparent !important;
+    color: $secondary-1 !important;
     text-decoration: none !important;
   }
   

@@ -37,6 +37,7 @@ $max-width: 1600px;
   .btn-icon.btn-icon-primary {
     background-color: transparent !important;
     color: $secondary-4 !important;
+    box-shadow: none !important;
   }
   
   .btn-icon.btn-icon-primary.active, .btn-icon.btn-icon-primary.hover, .btn-icon.btn-icon-primary:active, .btn-icon.btn-icon-primary:hover {
@@ -62,12 +63,14 @@ $max-width: 1600px;
   
   .pgn__menu-select-trigger-btn {
     color: $secondary-4 !important;
+    border: 0 !important;
   }
   
   .pgn__menu-select-trigger-btn:hover {
     background: transparent !important;
     border: 0 !important;
     color: $primary-1 !important;
+    text-decoration: none !important;
   }
   
   a.text-primary:focus, a.text-primary:hover {
@@ -76,6 +79,27 @@ $max-width: 1600px;
   
   a.text-primary {
     color: $secondary-4 !important;
+  }
+  
+  .wrap-instructor-info .instructor-info-action {
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    color: $primary-1 !important;
+  }
+  
+  .wrap-instructor-info .instructor-info-action {
+    border-radius: 0 !important;
+    background-color: $primary-1 !important;
+    color: transparent !important;
+    text-decoration: none !important;
+  }
+  
+  .donut-chart-text {
+    fill: $primary-1 !important;
+  }
+  
+  .bg-primary-500 {
+    background-color: $primary-1 !important;
   }
   
   .wrap-instructor-info .instructor-info-action {

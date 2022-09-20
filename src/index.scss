@@ -13,6 +13,14 @@ $secondary-3: #e7e7e7;
 $secondary-4: #767676;
 $max-width: 1600px;
 
+.wrap-instructor-info .instructor-info-action {
+  border: 1px solid $primary-1 !important;
+  border-radius: 0 !important;
+  background-color: $primary-1 !important;
+  color: $secondary-1 !important;
+  text-decoration: none !important;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -86,14 +94,6 @@ $max-width: 1600px;
     border-radius: 0 !important;
     background-color: transparent !important;
     color: $primary-1 !important;
-  }
-  
-  .wrap-instructor-info .instructor-info-action {
-    border: 1px solid $primary-1 !important;
-    border-radius: 0 !important;
-    background-color: $primary-1 !important;
-    color: $secondary-1 !important;
-    text-decoration: none !important;
   }
   
   .donut-chart-text {

@@ -103,6 +103,18 @@ $max-width: 1600px;
     color: $secondary-1 !important;
     text-decoration: none !important;
   }
+  
+  .btn-tertiary {
+    background-color: transparent !important;
+    border: 0;
+    color: #secondary-2;
+  }
+  
+  .btn-tertiary:hover {
+    background-color: transparent !important;
+    border: 0;
+    color: red;
+  }
 
   main {
     flex-grow: 1;

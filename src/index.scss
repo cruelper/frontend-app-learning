@@ -115,6 +115,30 @@ $max-width: 1600px;
     border: 0;
     color: red;
   }
+  
+  .btn-outline-primary {
+    border-color: $primary-1 !important;
+    color: $primary-1 !important;
+    background-color: transparent !important;
+  }
+  
+  .btn-outline-primary:hover {
+    border-color: $primary-1 !important;
+    color: $secondary-1 !important;
+    background-color: $primary-1 !important;
+  }
+  
+  .btn-brand {
+    background-color: $primary-1 !important;
+    border-color: $primary-1 !important;
+    color: $secondary-1 !important;
+  }
+  
+  .btn-brand:hover {
+    background-color: transparent !important;
+    border-color: $primary-1 !important;
+    color: $primary-1 !important;
+  }
 
   main {
     flex-grow: 1;

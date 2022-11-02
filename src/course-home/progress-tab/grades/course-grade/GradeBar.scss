@@ -1,24 +1,19 @@
-$primary-1: #2780e3;
-$primary-2: #ddeeff;
-$secondary-1: #fff;
-$secondary-2: #000;
-
 .grade-bar {
   rect {
     height: 6px;
   }
 
   .grade-bar__base {
-    fill: $secondary-1;
+    fill: $light-300;
   }
 
   .grade-bar__divider {
-    fill: $primary-1;
+    fill: $primary-500;
     width: 1px;
   }
 
   .grade-bar--passing {
-    fill: $primary-1;
+    fill: $primary-500;
   }
 
   .grade-bar--current-passing {
@@ -36,7 +31,7 @@ $secondary-2: #000;
 
 #minimum-grade-tooltip {
   .arrow::after {
-    border-bottom-color: $primary-1;
+    border-bottom-color: $primary-500;
   }
 }
 

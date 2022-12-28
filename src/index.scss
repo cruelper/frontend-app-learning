@@ -5,10 +5,123 @@
 
 @import "~@edx/frontend-component-footer/dist/footer";
 
+$primary-1: #2780e3;
+$primary-2: #ddeeff;
+$secondary-1: #fff;
+$secondary-2: #000;
+$secondary-3: #e7e7e7;
+$secondary-4: #767676;
+$max-width: 1600px;
+
 #root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: $max-width;
+  margin: 0 auto;
+  
+  // start
+  .btn {
+    border-radius: 0 !important;
+    background-color: transparent !important;
+    color: $primary-1 !important;
+  }
+  
+  .bg-primary {
+    background-color: $primary-1 !important;
+  }
+
+  .raised-card {
+    border: 1px solid $secondary-3 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+  }
+
+  .btn-icon.btn-icon-primary {
+    background-color: transparent !important;
+    color: $secondary-4 !important;
+  }
+
+  .btn-icon.btn-icon-primary.active, .btn-icon.btn-icon-primary.hover, .btn-icon.btn-icon-primary:active, .btn-icon.btn-icon-primary:hover {
+    background-color: transparent !important;
+    color: $primary-1 !important;
+  }
+  
+  .next-button, .previous-button {
+    background-color: transparent !important;
+    color: $primary-1 !important;
+    border: 1px solid $primary-1 !important;
+  }
+
+  .next-button:hover, .previous-button:hover {
+    background-color: $primary-1 !important;
+    color: $secondary-1 !important;
+    border: 1px solid $primary-1 !important;
+  }
+
+  .pgn__menu-select-trigger-btn {
+    color: $secondary-4 !important;
+  }
+
+  .pgn__menu-select-trigger-btn:hover {
+    background: transparent !important;
+    border: 0 !important;
+    color: $primary-1 !important;
+  }
+
+  a.text-primary:focus, a.text-primary:hover {
+    color: $primary-1 !important;
+  }
+
+  a.text-primary {
+    color: $secondary-4 !important;
+  }
+
+  .wrap-instructor-info .instructor-info-action {
+    border: 1px solid $primary-1 !important;
+    border-radius: 0 !important;
+    background-color: $primary-1 !important;
+    color: $secondary-1 !important;
+    text-decoration: none !important;
+  }
+  
+  .btn-tertiary {
+    background-color: transparent !important;
+    border: 0;
+    color: #secondary-2;
+  }
+
+  .btn-tertiary:hover {
+    background-color: transparent !important;
+    border: 0;
+    color: red;
+  }
+  
+  .btn-outline-primary {
+    border-color: $primary-1 !important;
+    color: $primary-1 !important;
+    background-color: transparent !important;
+  }
+
+  .btn-outline-primary:hover {
+    border-color: $primary-1 !important;
+    color: $secondary-1 !important;
+    background-color: $primary-1 !important;
+  }
+
+  .btn-brand {
+    background-color: $primary-1 !important;
+    border-color: $primary-1 !important;
+    color: $secondary-1 !important;
+  }
+
+  .btn-brand:hover {
+    background-color: transparent !important;
+    border-color: $primary-1 !important;
+    color: $primary-1 !important;
+  }
+  
+  //end
 
   main {
     flex-grow: 1;
@@ -228,7 +341,7 @@
 
   .previous-btn,
   .next-btn {
-    border: 1px solid $light-400 !important;
+    border: 1px solid $secondary-3 !important;
     color: $gray-700;
     display: inline-flex;
     justify-content: center;

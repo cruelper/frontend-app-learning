@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700');
-@import 'scss/variables';
-@import "scss/core/core";
-@import "scss/overrides";
+@import "~@edx/brand/paragon/fonts";
+@import "~@edx/brand/paragon/variables";
+@import "~@edx/paragon/scss/core/core";
+@import "~@edx/brand/paragon/overrides";
 
 @import "~@edx/frontend-component-footer/dist/footer";
 
@@ -376,6 +376,7 @@
 @import "course-home/progress-tab/course-completion/CompletionDonutChart.scss";
 @import "course-home/progress-tab/grades/course-grade/GradeBar.scss";
 @import "courseware/course/course-exit/CourseRecommendations";
+@import "product-tours/newUserCourseHomeTour/NewUserCourseHomeTourModal.scss";
 
 /** [MM-P2P] Experiment */
 @import "experiments/mm-p2p/index.scss";

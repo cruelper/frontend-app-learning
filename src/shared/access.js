@@ -4,7 +4,7 @@ import { getLocale } from '@edx/frontend-platform/i18n';
 // This function inspects an access denied error and provides a redirect url (looks like a /redirect/... path),
 // which then renders a nice little message while the browser loads the next page.
 // This is basically a frontend version of check_course_access_with_redirect in the backend.
-export function getAccessDeniedRedirectUrl(courseId, activeTabSlug, canLoadCourseware, courseAccess, start, unitId) {
+export function getAccessDeniedRedirectUrl(courseId, activeTabSlug, courseAccess, start) {
   let url = null;
   switch (courseAccess.errorCode) {
     case 'audit_expired':
@@ -18,18 +18,20 @@ export function getAccessDeniedRedirectUrl(courseId, activeTabSlug, canLoadCours
     case 'survey_required':
       url = `/redirect/survey/${courseId}`;
       break;
+    case 'data_sharing_access_required':
+      url = `/redirect/consent?consentPath=${encodeURIComponent(courseAccess.developerMessage)}`;
+      break;
+    case 'incorrect_active_enterprise':
+      url = `/course/${courseId}/access-denied`;
+      break;
     case 'unfulfilled_milestones':
       url = '/redirect/dashboard';
       break;
     case 'authentication_required':
     case 'enrollment_required':
     default:
-      // if the learner has access to the course, but it is not enabled in the mfe, there is no
-      // error message, canLoadCourseware will be false.
-      if (activeTabSlug === 'courseware' && canLoadCourseware === false && unitId) {
-        url = `/redirect/courseware/${courseId}/unit/${unitId}`;
-      } else if (activeTabSlug !== 'outline') {
-        url = `/redirect/course-home/${courseId}`;
+      if (activeTabSlug !== 'outline') {
+        url = `/course/${courseId}/home`;
       }
   }
   return url;

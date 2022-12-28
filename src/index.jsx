@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime';
 import {
   APP_INIT_ERROR, APP_READY, subscribe, initialize,
   mergeConfig,
+  getConfig,
 } from '@edx/frontend-platform';
 import { AppProvider, ErrorPage, PageRoute } from '@edx/frontend-platform/react';
 import React from 'react';
@@ -12,6 +13,9 @@ import { Switch } from 'react-router-dom';
 
 import { messages as footerMessages } from '@edx/frontend-component-footer';
 import { messages as headerMessages } from '@edx/frontend-component-header';
+import { Helmet } from 'react-helmet';
+import { fetchDiscussionTab, fetchLiveTab } from './course-home/data/thunks';
+import DiscussionTab from './course-home/discussion-tab/DiscussionTab';
 
 import appMessages from './i18n';
 import { UserMessagesProvider } from './generic/user-messages';
@@ -31,24 +35,40 @@ import { fetchCourse } from './courseware/data';
 import initializeStore from './store';
 import NoticesProvider from './generic/notices';
 import PathFixesProvider from './generic/path-fixes';
+import LiveTab from './course-home/live-tab/LiveTab';
+import CourseAccessErrorPage from './generic/CourseAccessErrorPage';
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
     <AppProvider store={initializeStore()}>
+      <Helmet>
+        <link rel="shortcut icon" href={getConfig().FAVICON_URL} type="image/x-icon" />
+      </Helmet>
       <PathFixesProvider>
         <NoticesProvider>
           <UserMessagesProvider>
             <Switch>
               <PageRoute exact path="/goal-unsubscribe/:token" component={GoalUnsubscribe} />
               <PageRoute path="/redirect" component={CoursewareRedirectLandingPage} />
+              <PageRoute path="/course/:courseId/access-denied" component={CourseAccessErrorPage} />
               <PageRoute path="/course/:courseId/home">
                 <TabContainer tab="outline" fetch={fetchOutlineTab} slice="courseHome">
                   <OutlineTab />
                 </TabContainer>
               </PageRoute>
+              <PageRoute path="/course/:courseId/live">
+                <TabContainer tab="live" fetch={fetchLiveTab} slice="courseHome">
+                  <LiveTab />
+                </TabContainer>
+              </PageRoute>
               <PageRoute path="/course/:courseId/dates">
                 <TabContainer tab="dates" fetch={fetchDatesTab} slice="courseHome">
                   <DatesTab />
+                </TabContainer>
+              </PageRoute>
+              <PageRoute path="/course/:courseId/discussion/:path*">
+                <TabContainer tab="discussion" fetch={fetchDiscussionTab} slice="courseHome">
+                  <DiscussionTab />
                 </TabContainer>
               </PageRoute>
               <PageRoute

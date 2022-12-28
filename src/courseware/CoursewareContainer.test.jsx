@@ -450,6 +450,7 @@ describe('CoursewareContainer', () => {
           has_access: false,
           error_code: errorCode,
           additional_context_user_message: 'uhoh oh no', // only used by audit_expired
+          developer_message: 'data_sharing_consent_url', // only used by data_sharing_access_required
         },
       });
 
@@ -465,7 +466,7 @@ describe('CoursewareContainer', () => {
       const { courseMetadata } = setUpWithDeniedStatus('enrollment_required');
       await loadContainer();
 
-      expect(global.location.href).toEqual(`http://localhost/redirect/course-home/${courseMetadata.id}`);
+      expect(global.location.href).toEqual(`http://localhost/course/${courseMetadata.id}/home`);
     });
 
     it('should go to course survey for a survey_required error code', async () => {
@@ -475,11 +476,25 @@ describe('CoursewareContainer', () => {
       expect(global.location.href).toEqual(`http://localhost/redirect/survey/${courseMetadata.id}`);
     });
 
+    it('should go to consent page for a data_sharing_access_required error code', async () => {
+      setUpWithDeniedStatus('data_sharing_access_required');
+      await loadContainer();
+
+      expect(global.location.href).toEqual('http://localhost/redirect/consent?consentPath=data_sharing_consent_url');
+    });
+
+    it('should go to access denied page for a incorrect_active_enterprise error code', async () => {
+      const { courseMetadata } = setUpWithDeniedStatus('incorrect_active_enterprise');
+      await loadContainer();
+
+      expect(global.location.href).toEqual(`http://localhost/course/${courseMetadata.id}/access-denied`);
+    });
+
     it('should go to course home for an authentication_required error code', async () => {
       const { courseMetadata } = setUpWithDeniedStatus('authentication_required');
       await loadContainer();
 
-      expect(global.location.href).toEqual(`http://localhost/redirect/course-home/${courseMetadata.id}`);
+      expect(global.location.href).toEqual(`http://localhost/course/${courseMetadata.id}/home`);
     });
 
     it('should go to dashboard for an unfulfilled_milestones error code', async () => {
@@ -502,23 +517,6 @@ describe('CoursewareContainer', () => {
 
       const startDate = '2/5/2013'; // This date is based on our courseMetadata factory's sample data.
       expect(global.location.href).toEqual(`http://localhost/redirect/dashboard?notlive=${startDate}`);
-    });
-  });
-
-  describe('redirects when canLoadCourseware is false', () => {
-    it('should go to legacy courseware for disabled frontend', async () => {
-      const courseMetadata = Factory.build('courseMetadata');
-      const courseHomeMetadata = Factory.build('courseHomeMetadata', {
-        can_load_courseware: false,
-      });
-      const courseId = courseMetadata.id;
-      const { courseBlocks, sequenceBlocks, unitBlocks } = buildSimpleCourseBlocks(courseId, courseMetadata.name);
-      setUpMockRequests({ courseBlocks, courseMetadata, courseHomeMetadata });
-      history.push(`/course/${courseId}/${sequenceBlocks[0].id}/${unitBlocks[0].id}`);
-
-      await loadContainer();
-
-      expect(global.location.href).toEqual(`http://localhost/redirect/courseware/${courseMetadata.id}/unit/${unitBlocks[0].id}`);
     });
   });
 });

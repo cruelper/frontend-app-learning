@@ -4,6 +4,7 @@ import { getConfig } from '@edx/frontend-platform';
 import { FormattedMessage } from '@edx/frontend-platform/i18n';
 import { PageRoute } from '@edx/frontend-platform/react';
 
+import queryString from 'query-string';
 import PageLoading from '../generic/PageLoading';
 
 export default () => {
@@ -21,18 +22,6 @@ export default () => {
 
       <Switch>
         <PageRoute
-          path={`${path}/courseware/:courseId/unit/:unitId`}
-          render={({ match }) => {
-            global.location.assign(`${getConfig().LMS_BASE_URL}/courses/${match.params.courseId}/jump_to/${match.params.unitId}?experience=legacy`);
-          }}
-        />
-        <PageRoute
-          path={`${path}/course-home/:courseId`}
-          render={({ match }) => {
-            global.location.assign(`${getConfig().LMS_BASE_URL}/courses/${match.params.courseId}/course/`);
-          }}
-        />
-        <PageRoute
           path={`${path}/survey/:courseId`}
           render={({ match }) => {
             global.location.assign(`${getConfig().LMS_BASE_URL}/courses/${match.params.courseId}/survey`);
@@ -42,6 +31,19 @@ export default () => {
           path={`${path}/dashboard`}
           render={({ location }) => {
             global.location.assign(`${getConfig().LMS_BASE_URL}/dashboard${location.search}`);
+          }}
+        />
+        <PageRoute
+          path={`${path}/consent/`}
+          render={({ location }) => {
+            const { consentPath } = queryString.parse(location.search);
+            global.location.assign(`${getConfig().LMS_BASE_URL}${consentPath}`);
+          }}
+        />
+        <PageRoute
+          path={`${path}/home/:courseId`}
+          render={({ match }) => {
+            global.location.assign(`/course/${match.params.courseId}/home`);
           }}
         />
       </Switch>

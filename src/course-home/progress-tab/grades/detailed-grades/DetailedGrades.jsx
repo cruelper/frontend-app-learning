@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { getConfig } from '@edx/frontend-platform';
 import { sendTrackEvent } from '@edx/frontend-platform/analytics';
 import { getAuthenticatedUser } from '@edx/frontend-platform/auth';
 import { FormattedMessage, injectIntl, intlShape } from '@edx/frontend-platform/i18n';
@@ -20,6 +19,7 @@ function DetailedGrades({ intl }) {
   } = useSelector(state => state.courseHome);
   const {
     org,
+    tabs,
   } = useModel('courseHomeMeta', courseId);
   const {
     gradesFeatureIsFullyLocked,
@@ -37,11 +37,14 @@ function DetailedGrades({ intl }) {
     });
   };
 
-  const outlineLink = (
+  const overviewTab = tabs.find(tab => tab.slug === 'outline');
+  const overviewTabUrl = overviewTab && overviewTab.url;
+
+  const outlineLink = overviewTabUrl && (
     <Hyperlink
       variant="muted"
       isInline
-      destination={`${getConfig().LMS_BASE_URL}/courses/${courseId}/course`}
+      destination={overviewTabUrl}
       onClick={logOutlineLinkClick}
       tabIndex={gradesFeatureIsFullyLocked ? '-1' : '0'}
     >
@@ -64,14 +67,16 @@ function DetailedGrades({ intl }) {
       {!hasSectionScores && (
         <p className="small">{intl.formatMessage(messages.detailedGradesEmpty)}</p>
       )}
-      <p className="x-small m-0">
-        <FormattedMessage
-          id="progress.ungradedAlert"
-          defaultMessage="For progress on ungraded aspects of the course, view your {outlineLink}."
-          description="Text that precede link that redirect to course outline page"
-          values={{ outlineLink }}
-        />
-      </p>
+      {overviewTabUrl && (
+        <p className="x-small m-0">
+          <FormattedMessage
+            id="progress.ungradedAlert"
+            defaultMessage="For progress on ungraded aspects of the course, view your {outlineLink}."
+            description="Text that precede link that redirect to course outline page"
+            values={{ outlineLink }}
+          />
+        </p>
+      )}
     </section>
   );
 }

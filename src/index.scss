@@ -21,10 +21,28 @@ $max-width: 1600px;
   margin: 0 auto;
   
   // start
-  .btn {
-    border-radius: 0 !important;
+  .btn-inverse-outline-primary {
+    border: 0 !important;
     background-color: transparent !important;
-    color: $primary-1 !important;
+    color: $secondary-1 !important;
+  }
+  
+  .btn-inverse-outline-primary:hover {
+    text-decoration: underline;
+  }
+  
+  .btn-inverse-outline-primary:focus:before {
+    border: 0 !important;
+   }
+  
+  .nav-underline-tabs .nav-link {
+    font-weight: 400;
+  }
+  
+  .nav-underline-tabs .nav-link.active, .nav-underline-tabs .nav-link:focus, .nav-underline-tabs .nav-link:hover {
+    border-bottom-color: $primary-1;
+    color: $primary-1;
+    font-weight: 400;
   }
   
   .bg-primary {

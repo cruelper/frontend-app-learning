@@ -21,6 +21,10 @@ $max-width: 1600px;
   margin: 0 auto;
   
   // start
+  .btn {
+    border-radius: 0;
+  }
+  
   .btn-inverse-outline-primary {
     border: 0 !important;
     background-color: transparent !important;
@@ -137,6 +141,10 @@ $max-width: 1600px;
     background-color: transparent !important;
     border-color: $primary-1 !important;
     color: $primary-1 !important;
+  }
+  
+  .bg-warning-300 {
+    background-color: #f08d3c !important;
   }
   
   //end
